@@ -5,6 +5,7 @@ import {pink500, white, darkBlack, blueGrey500, darkWhite } from 'material-ui/st
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import Home from './home'
 import Skill from './skill'
+import Experience from './experience'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import SwipeableViews from 'react-swipeable-views'
 
@@ -84,7 +85,7 @@ export default class Main extends React.Component {
               <Skill/>
             </div>
             <div style={styles.slide}>
-              slide n°3
+              <Experience/>
             </div>
           </SwipeableViews>
         </div>

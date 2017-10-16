@@ -29,7 +29,7 @@ class Skill extends React.Component {
       },
       titleWrapper: {
         boxSizing: 'border-box',
-        backgroundColor: '#E91E63',
+        backgroundColor: this.props.muiTheme.palette.primary1Color,
         height: '56px',
         padding: '0px 24px',
         marginBottom: '1rem'
