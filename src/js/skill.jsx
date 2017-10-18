@@ -7,7 +7,7 @@ class Tile extends React.Component{
   render() {
     return (
       <div className="skill--content_tile">
-        <CircularProgressbar {...this.props} />
+        <CircularProgressbar {...this.props} initialAnimation={true}/>
         <p>{this.props.children}</p>
       </div>
     )
@@ -16,6 +16,29 @@ class Tile extends React.Component{
 
 
 class Skill extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      percentages: [0, 0, 0, 0, 0],
+      set: true,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.index === 1 && this.state.set){
+      this.setState({
+        percentages: [60, 70, 80, 90, 100],
+        set: false
+      })
+    }
+    else if(nextProps.index !== 1 && !this.state.set){
+      this.setState({
+        percentages: [0, 0, 0, 0, 0],
+        set: true
+      })
+    }
+  }
+
   render() {
     const styles = {
       paper: {
@@ -50,19 +73,19 @@ class Skill extends React.Component {
             </span>
           </div>
           <div style={styles.contentWrapper} className="skill--content_wrapper">
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               HTML5
             </Tile>
-            <Tile percentage={90}>
+            <Tile percentage={this.state.percentages[3]}>
               SASS
             </Tile>
-            <Tile percentage={70}>
+            <Tile percentage={this.state.percentages[1]}>
               React <span className="subText">(Webpack/Babel)</span>
             </Tile>
-            <Tile percentage={90}>
+            <Tile percentage={this.state.percentages[3]}>
               Jquery
             </Tile>
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               Bootstrap
             </Tile>
           </div>
@@ -75,22 +98,22 @@ class Skill extends React.Component {
             </span>
           </div>
           <div style={styles.contentWrapper} className="skill--content_wrapper">
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               PHP
             </Tile>
-            <Tile percentage={70}>
+            <Tile percentage={this.state.percentages[1]}>
               Express
             </Tile>
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               SQL
             </Tile>
-            <Tile percentage={60}>
+            <Tile percentage={this.state.percentages[0]}>
               MongoDB
             </Tile>
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               C#
             </Tile>
-            <Tile percentage={80}>
+            <Tile percentage={this.state.percentages[2]}>
               Python
             </Tile>
           </div>
@@ -103,23 +126,23 @@ class Skill extends React.Component {
             </span>
           </div>
           <div style={styles.contentWrapper} className="skill--content_wrapper">
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               Windows
             </Tile>
-            <Tile percentage={100}>
+            <Tile percentage={this.state.percentages[4]}>
               Linux
             </Tile>
-            <Tile percentage={80}>
+            <Tile percentage={this.state.percentages[2]}>
               Apache
             </Tile>
-            <Tile percentage={90}>
+            <Tile percentage={this.state.percentages[3]}>
               Git
             </Tile>
-            <Tile percentage={70}>
+            <Tile percentage={this.state.percentages[1]}>
               Agile
             </Tile>
-            <Tile percentage={80}>
-              Englais
+            <Tile percentage={this.state.percentages[3]}>
+              Anglais
             </Tile>
           </div>
         </Paper>

@@ -78,7 +78,7 @@ export default class Main extends React.Component {
               <Home/>
             </div>
             <div style={styles.slide}>
-              <Skill/>
+              <Skill index={this.state.slideIndex}/>
             </div>
             <div style={styles.slide}>
               <Experience/>
