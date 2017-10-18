@@ -22,6 +22,30 @@
   box-sizing: border-box
 
 @supports not (display: grid)
+  .xp--contentTop
+    display: flex
+    flex-wrap: wrap
+
+  .xp--contentHeader
+    flex: 1 1 100%
+
+  .xp--contentLeft,
+  .xp--contentRight
+    flex: 1 1 50%
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  .xp--contentTop
+    display: flex
+    flex-wrap: wrap
+
+  .xp--contentHeader
+    flex: 1 1 100%
+
+  .xp--contentLeft,
+  .xp--contentRight
+    flex: 1 1 50%
+
+@supports not (display: grid)
   .xp--grid
     display: flex
     flex-wrap: wrap
