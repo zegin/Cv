@@ -1,0 +1,20 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: true
+# File Options
+files:
+  include: 'src/css/*.*'
+
+rules:
+  property-sort-order:
+     - 1
+     -
+       order: 'smacss'
+  class-name-format:
+    - 0
+  no-color-literals:
+    - 0

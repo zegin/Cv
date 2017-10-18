@@ -25,7 +25,7 @@
     "dev": "webpack-dev-server --colors --port 8888 --hot  --watch",
     "build": "webpack",
     "lint": "eslint src/js/*.jsx",
-    "lint-sass": "sass-lint --no-exit --verbose"
+    "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml"
   },
   "dependencies": {
     "babel-eslint": "^8.0.1",

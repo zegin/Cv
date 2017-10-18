@@ -13,12 +13,6 @@ class Home extends React.Component {
         textAlign: 'center',
         height: 'calc(100vh - ' + this.props.muiTheme.button.iconButtonSize + 'px)'
       },
-      home_title: {
-        paddingTop: '25vh',
-        fontSize: '3.2em',
-        marginBottom: 0,
-        marginTop: 0,
-      },
       home_subTitle: {
         fontSize: '2em'
       },
@@ -57,7 +51,7 @@ class Home extends React.Component {
     }
     return (
       <div style={styles.home}>
-        <p style={styles.home_title}>Gilian Gonnord</p>
+        <p style={styles.home_title} className="home--title">Gilian Gonnord</p>
         <p style={styles.home_subTitle}>Développeur FullStack</p>
         <div style={styles.home_email}>
           <div style={styles.home_emailWrapper}>

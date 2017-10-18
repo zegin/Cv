@@ -5,13 +5,8 @@ import Paper from 'material-ui/Paper'
 
 class Tile extends React.Component{
   render() {
-    const styles = {
-      contentTile: {
-        textAlign: 'center',
-      }
-    }
     return (
-      <div style={styles.contentTile}>
+      <div className="skill--content_tile">
         <CircularProgressbar {...this.props} />
         <p>{this.props.children}</p>
       </div>
@@ -45,23 +40,16 @@ class Skill extends React.Component {
         overflow: 'hidden',
         color: this.props.muiTheme.palette.alternateTextColor
       },
-      contentWrapper: {
-        padding: '1rem 2rem',
-        display: 'grid',
-        width: '100%',
-        alignContent: 'space-between',
-        gridAutoFlow : 'column',
-      },
     }
     return (
-      <div>
+      <div className="skill--wrapper">
         <Paper style={styles.paper} zDepth={2}>
           <div style={styles.titleWrapper}>
             <span style={styles.title}>
               Front end
             </span>
           </div>
-          <div style={styles.contentWrapper}>
+          <div style={styles.contentWrapper} className="skill--content_wrapper">
             <Tile percentage={100}>
               HTML5
             </Tile>
@@ -69,7 +57,7 @@ class Skill extends React.Component {
               SASS
             </Tile>
             <Tile percentage={70}>
-              React (Webpack/Babel)
+              React <span className="subText">(Webpack/Babel)</span>
             </Tile>
             <Tile percentage={90}>
               Jquery
@@ -86,7 +74,7 @@ class Skill extends React.Component {
               Back end
             </span>
           </div>
-          <div style={styles.contentWrapper}>
+          <div style={styles.contentWrapper} className="skill--content_wrapper">
             <Tile percentage={100}>
               PHP
             </Tile>
@@ -114,7 +102,7 @@ class Skill extends React.Component {
               Autres
             </span>
           </div>
-          <div style={styles.contentWrapper}>
+          <div style={styles.contentWrapper} className="skill--content_wrapper">
             <Tile percentage={100}>
               Windows
             </Tile>

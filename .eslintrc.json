@@ -48,6 +48,9 @@
     ],
     "react/no-deprecated": [
       "warn"
+    ],
+    "no-dupe-keys": [
+      "off"
     ]
   }
 }

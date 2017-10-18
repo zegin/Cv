@@ -54,10 +54,6 @@ export default class Main extends React.Component {
       slide: {
         padding: 10,
       },
-      tabs: {
-        width: '40vw',
-        marginLeft: '60vw',
-      },
       tab: {
         backgroundColor: 'rgba(0, 0, 0, 0)',
       }
@@ -68,11 +64,11 @@ export default class Main extends React.Component {
           <Tabs
             onChange={this.handleChange}
             value={this.state.slideIndex}
-            style={styles.tabs}
+            className="tabs"
             tabItemContainerStyle={styles.tab}>
-            <Tab label="Accueil" value={0} />
-            <Tab label="Compétences" value={1} />
-            <Tab label="Expériences" value={2} />
+            <Tab className="tab" label="Accueil" value={0} />
+            <Tab className="tab" label="Compétences" value={1} />
+            <Tab className="tab" label="Expériences" value={2} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}

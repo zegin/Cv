@@ -1,0 +1,31 @@
+.subText
+  font-size: 14px
+
+.skill--content_wrapper
+  display: grid
+  align-content: space-between
+  width: 100%
+  padding: 1rem 2rem
+  grid-auto-flow: column
+
+.skill--content_tile
+  text-align: center
+
+//Tablet and above
+@media screen and (min-width: 768px)
+  .skill--wrapper
+    padding: 0 3rem
+
+//Smartphone and below
+@media screen and (max-width: 425px)
+  .skill--content_wrapper
+    grid-template-rows: 1fr 1fr
+    grid-gap: .5rem
+
+@supports not (display: grid)
+  .skill--content_wrapper
+    display: flex
+    justify-content: space-around
+
+  .skill--content_tile
+    text-align: center

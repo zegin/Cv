@@ -1,23 +1,23 @@
+@import 'main'
+@import 'home'
+@import 'experience'
+@import 'skill'
+
+
 *
-  -webkit-box-sizing: inherit
   box-sizing: inherit
 
 html
-  background-color: #fff
-  font-size: 16px
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
   min-width: 300px
-  overflow-x: hidden
-  overflow-y: scroll
-  text-rendering: optimizeLegibility
-  -webkit-text-size-adjust: 100%
-  -moz-text-size-adjust: 100%
-  -ms-text-size-adjust: 100%
-  text-size-adjust: 100%
-  box-sizing: border-box
   margin: 0
   padding: 0
+  background-color: #fff
+  font-size: 16px
+  text-rendering: optimizeLegibility
+  overflow-x: hidden
+  overflow-y: scroll
+  text-size-adjust: 100%
+  box-sizing: border-box
 
 p
   margin: 0
@@ -26,8 +26,8 @@ p
 body
   margin: 0
   padding: 0
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
   color: #4a4a4a
+  font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
   font-size: 1rem
   font-weight: 400
   line-height: 1.5
@@ -36,31 +36,19 @@ body
 .app
   box-sizing: inherit
 
-/*
- * react-circular-progressbar styles
- *
- * All of the styles in this file are optional and configurable!
- */
-
 .CircularProgressbar
-  /*
-   * This fixes an issue where the CircularProgressbar svg has
-   * 0 width inside a "display: flex" container, and thus not visible.
-   *
-   * If you're not using "display: flex", you can remove this style.
-   */
   width: 4rem
 
-.CircularProgressbar .CircularProgressbar-path
-  stroke: #3e98c7
-  stroke-linecap: round
-  transition: stroke-dashoffset 0.5s ease 0s
+  .CircularProgressbar-path
+    transition: stroke-dashoffset .5s ease 0s
+    stroke: #3e98c7
+    stroke-linecap: round
 
-.CircularProgressbar .CircularProgressbar-trail
-  stroke: #d6d6d6
+  .CircularProgressbar-trail
+    stroke: #d6d6d6
 
-.CircularProgressbar .CircularProgressbar-text
-  fill: #3e98c7
-  font-size: 25px
-  dominant-baseline: middle
-  text-anchor: middle
+  .CircularProgressbar-text
+    font-size: 25px
+    fill: #3e98c7
+    dominant-baseline: middle
+    text-anchor: middle

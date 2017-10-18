@@ -1,0 +1,90 @@
+.xp--grid
+  display: grid
+  margin: 5vh 5vw
+  padding: 0
+  grid-gap: 3rem
+
+.xp--content
+  display: grid
+  padding: 1rem 2rem
+
+.xp--titleWrapper
+  position: relative
+  height: 56px
+  margin-bottom: 1rem
+  padding: 0 16px 0 24px
+  font-family: Roboto, sans-serif
+  font-size: 20px
+  line-height: 56px
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+  box-sizing: border-box
+
+@supports not (display: grid)
+  .xp--grid
+    display: flex
+    flex-wrap: wrap
+
+  .xp--top
+    flex: 1 1 calc(100% - 2rem)
+
+  .xp--botLeft,
+  .xp--botRight
+    flex: 1 1 calc(50% - 2rem)
+
+  .xp--top,
+  .xp--botLeft,
+  .xp--botRight
+    margin: 1rem
+
+//Above smartphone
+@media screen and (min-width: 426px) and (min-height: 426px)
+  .xp--grid
+    grid-template-columns: [startC] 1fr [middleC] 1fr [endC]
+    grid-template-rows: [startR] 1fr [middleR] 1fr [endR]
+
+  .xp--top
+    grid-area: startR / startC / middleR / endC
+
+  .xp--botLeft
+    grid-area: middleR / startC / endR / middleC
+
+  .xp--botRight
+    grid-area: middleR / middleC / endR / endC
+
+  .xp--contentTop
+    grid-template-columns: 50% 50%
+    grid-template-areas: 'header header' 'left right'
+
+  .xp--contentHeader
+    grid-area: header
+
+  .xp--contentLeft
+    grid-area: left
+
+  .xp--contentRight
+    border-left: 1px solid rgba(0, 0, 0, .2)
+    grid-area: right
+
+
+//Smartphone and below
+@media screen and (max-width: 425px), screen and (max-height: 426px)
+  .xp--grid
+    grid-template-columns: 100%
+    grid-template-rows: auto
+    grid-auto-flow: row
+
+  .xp--contentLeft
+    margin-bottom: 0
+    padding-bottom: 1rem
+
+  .xp--contentRight
+    margin-top: 0
+    padding-top: 1rem
+    border-top: 1px solid rgba(0, 0, 0, .1)
+
+//Small smartphone and below
+@media screen and (max-width: 320px)
+  .xp--titleWrapper
+    font-size: 18px
