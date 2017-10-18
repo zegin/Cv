@@ -18,3 +18,5 @@ rules:
     - 0
   no-color-literals:
     - 0
+  no-vendor-prefixes:
+    - 0    
