@@ -38,6 +38,23 @@
   .xp--botRight
     margin: 1rem
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  .xp--grid
+    display: flex
+    flex-wrap: wrap
+
+  .xp--top
+    flex: 1 1 calc(100% - 2rem)
+
+  .xp--botLeft,
+  .xp--botRight
+    flex: 1 1 calc(50% - 2rem)
+
+  .xp--top,
+  .xp--botLeft,
+  .xp--botRight
+    margin: 1rem
+
 //Above smartphone
 @media screen and (min-width: 426px) and (min-height: 426px)
   .xp--grid
