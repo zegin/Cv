@@ -1,7 +1,7 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import {pink500, white, darkBlack, blueGrey500, darkWhite } from 'material-ui/styles/colors'
+import {pink500, white, darkBlack, blueGrey500, blueGrey200, darkWhite } from 'material-ui/styles/colors'
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import Home from './home'
 import Skill from './skill'
@@ -14,14 +14,13 @@ import SwipeableViews from 'react-swipeable-views'
 const theme = getMuiTheme(baseTheme, {
   palette: {
     primary1Color: pink500,
-    primary2Color: '#7b1fa2',
     accent1Color: pink500,
     textColor: darkBlack,
     alternateTextColor: white,
     backgroundColor: blueGrey500,
   },
   tabs: {
-    selectedTextColor: darkWhite,
+    selectedTextColor: blueGrey200,
     textColor: white
   }
 })
