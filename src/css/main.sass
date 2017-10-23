@@ -1,9 +1,14 @@
 .tabs
-  width: 40vw
-  margin-left: 60vw
+  width: 50vw
+  margin-left: 50vw
 
 //tablet or below
 @media screen and (max-width: 768px)
   .tabs
     width: auto
     margin-left: auto
+
+@media screen and (max-width: 425px)
+  .tab
+    //Inline Material UI override
+    font-size: calc(3px + 25vw / 10) !important // sass-lint:disable-line no-important

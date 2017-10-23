@@ -50,7 +50,8 @@
     display: flex
     flex-wrap: wrap
 
-  .xp--top
+  .xp--top,
+  .xp--contentBot
     flex: 1 1 calc(100% - 2rem)
 
   .xp--botLeft,
@@ -67,7 +68,8 @@
     display: flex
     flex-wrap: wrap
 
-  .xp--top
+  .xp--top,
+  .xp--contentBot
     flex: 1 1 100%
 
   .xp--botLeft,
@@ -107,6 +109,9 @@
   .xp--contentRight
     border-left: 1px solid rgba(0, 0, 0, .2)
     grid-area: right
+
+  .xp--contentBot
+    grid-area:  2 / 1 / 3 / 3
 
 
 //Smartphone and below

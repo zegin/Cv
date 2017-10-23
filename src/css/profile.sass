@@ -1,0 +1,109 @@
+.profile--paper
+  padding: 0
+
+.profile--title_wrapper
+  position: relative
+  height: 56px
+  padding: 0 24px
+  padding-right: 16px
+  font-family: Roboto, sans-serif
+  font-size: 20px
+  line-height: 56px
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+li
+  padding: .3rem 0
+
+.profile--content_wrapper
+  display: flex
+  flex-wrap: wrap
+  padding: .5rem
+
+  .profile--chip
+    margin: 4px !important //sass-lint:disable-line no-important
+
+//grid version
+
+.profile--wrapper
+  display: grid
+  padding: 3rem
+  grid:  1fr 1fr / 1fr 1fr
+  grid-gap: 3rem
+
+.left
+  grid-column: 1 / 2
+  grid-row: 2 / 3
+
+.middle
+  grid-column: 1 / 3
+  grid-row: 1 / 2
+
+.right
+  grid-column: 2 / 3
+  grid-row: 2 / 3
+
+//flex version
+@supports not (display: grid)
+  .profile--wrapper
+    display: flex
+
+  .middle
+    flex: 1 1 100%
+    order: 0
+    margin-bottom: 3rem
+
+  .left,
+  .right
+    flex: 1 1 calc(50% - 3rem)
+
+  .left
+    order: 1
+
+  .right
+    order: 2
+    margin-left: 3rem
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  .profile--wrapper
+    display: flex
+
+  .middle
+    flex: 1 1 100%
+    order: 0
+    margin-bottom: 3rem
+
+  .left,
+  .right
+    flex: 1 1 1%
+
+  .left
+    order: 1
+
+  .right
+    order: 2
+    margin-left: 3rem
+
+//Smartphone large and below
+@media screen and (max-width: 425px), screen and (max-height: 426px)
+  .profile--wrapper
+    padding: 3rem 1rem
+    grid-gap: 1rem
+
+  .left
+    grid-column: 1 / 3
+    grid-row: 2 / 3
+
+  .middle
+    grid-column: 1 / 3
+    grid-row: 1 / 2
+
+  .right
+    grid-column: 1 / 3
+    grid-row: 3 / 4
+
+//Smartphone medium and below
+@media screen and (max-width: 375px), screen and (max-height: 376px)
+  .profile--title_wrapper
+    font-size: 16px

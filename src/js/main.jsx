@@ -6,6 +6,7 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import Home from './home'
 import Skill from './skill'
 import Experience from './experience'
+import Profile from './profile'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import SwipeableViews from 'react-swipeable-views'
 
@@ -69,6 +70,7 @@ export default class Main extends React.Component {
             <Tab className="tab" label="Accueil" value={0} />
             <Tab className="tab" label="Compétences" value={1} />
             <Tab className="tab" label="Expériences" value={2} />
+            <Tab className="tab" label="Profil" value={3} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}
@@ -82,6 +84,9 @@ export default class Main extends React.Component {
             </div>
             <div style={styles.slide}>
               <Experience/>
+            </div>
+            <div style={styles.slide}>
+              <Profile/>
             </div>
           </SwipeableViews>
         </div>
