@@ -6,6 +6,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
     "eslint-loader": "^1.9.0",
@@ -23,7 +24,7 @@
   "sasslintConfig": "./.sasslintrc.json",
   "scripts": {
     "dev": "webpack-dev-server --colors --port 8888 --hot  --watch",
-    "prod": "webpack-dev-server --port 8888 --hot --watch --compress --client-log-level none",
+    "prod": "webpack-dev-server --port 8888 --hot --watch --compress --client-log-level none --info",
     "build": "webpack",
     "lint": "eslint src/js/*.jsx",
     "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml"

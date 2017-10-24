@@ -1,7 +1,7 @@
 // We are using node's native package 'path'
 // https://nodejs.org/api/path.html
 const path = require('path');
-
+const CompressionPlugin = require("compression-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Import our plugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -35,6 +35,9 @@ module.exports = {
       template: path.join(paths.SRC, 'index.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
+    new CompressionPlugin({
+      test: /\.(js|jsx)$/
+    }),
   ],
   // Loaders configuration
   // We are telling webpack to use "babel-loader" for .js and .jsx files

@@ -1,7 +1,7 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import {pink500, white, darkBlack, blueGrey500, blueGrey200, darkWhite } from 'material-ui/styles/colors'
+import {pink500, white, darkBlack, blueGrey500, blueGrey200 } from 'material-ui/styles/colors'
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import Home from './home'
 import Skill from './skill'
