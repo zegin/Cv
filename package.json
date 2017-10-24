@@ -19,13 +19,13 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
   },
   "sasslintConfig": "./.sasslintrc.json",
   "scripts": {
     "dev": "webpack-dev-server --colors --port 8888 --hot  --watch",
-    "prod": "webpack-dev-server --port 8888 --hot --watch --compress --client-log-level none --info",
-    "build": "webpack",
+    "prod": "webpack --config webpack.prod.js",
     "lint": "eslint src/js/*.jsx",
     "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml"
   },
