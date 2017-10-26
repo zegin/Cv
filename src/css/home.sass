@@ -4,7 +4,33 @@
   padding-top: 25vh
   font-size: 3.2em
 
+.contact--wrapper
+  display: flex
+  position: absolute
+  left: 30vw
+  flex-flow: row
+  flex-wrap: wrap
+  width: 40vw
+  margin: auto
+  padding: 1rem 2rem
+  transition: .6s
+
+@media screen and (max-width: 426px)
+  .contact--wrapper
+    left: 0
+    width: 100vw
+
+  .toastify__body
+    width: 200px
+
 //Small smartphone and below
 @media screen and (max-width: 320px)
   .home--title
     font-size: 2.5em
+
+
+.toastify-content
+  margin-bottom: 3rem
+
+.primary-toast
+  background-color: #E91E63

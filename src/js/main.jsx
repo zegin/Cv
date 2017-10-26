@@ -74,6 +74,8 @@ export default class Main extends React.Component {
           <SwipeableViews
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
+            animateHeight
+            style={{minHeight: 'calc(100vh - 48px)'}}
           >
             <div>
               <Home/>
