@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 const nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
-console.log(process.env.PORT)
+console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV === 'dev'){
   require('dotenv').config({path: './.dev.env'})
 }

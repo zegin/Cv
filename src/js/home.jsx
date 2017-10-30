@@ -57,8 +57,9 @@ class Contact extends React.Component {
   validation(){
     if(this.state.mail && this.validateEmail() && this.state.name && this.state.subject && this.state.text){
       top='-100vh'
+      let address = 'http://' + process.env.IP + ':3000/send/'
       request
-        .post('http://' + process.env.IP + ':3000/send/') //eslint-disable-line
+        .post(address) //eslint-disable-line
         .set('Content-Type', 'application/json')
         .send({
           mail: this.state.mail,
@@ -67,6 +68,7 @@ class Contact extends React.Component {
           text: this.state.text
         })
         .set('accept', 'json')
+        .end()
       this.forceUpdate()
       this.props.update()
     }
