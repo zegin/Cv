@@ -13,6 +13,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 const nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 require('dotenv').config()
 
@@ -20,15 +21,24 @@ app.listen(port);
 
 app.route('/send').post((req, res) => {
   // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-      host: process.env.HOST,
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-          user: process.env.USER,
-          pass: process.env.PASSWORD
-      }
-  });
+  let envelope = {
+    debug: true,
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // SSL=true
+    auth: {
+        type: 'OAuth2',
+        user: 'zeginfr@gmail.com',
+        pass: process.env.PASSWORD,
+        clientId: '951275931047-5d8234poot5om8moe42h17fe6nasm9qj.apps.googleusercontent.com',
+        clientSecret: 'IrNHKmBtptVdnhMZYEwAopuw',
+        refreshToken: '1/43UCLe77qnP_yUT4TccMNuhRWTNwh047KaceuqQVM4w',
+        accessToken: 'ya29.GlvxBEg6x3yfmuq6fn8AqjQJBIbDPDFOi25sT1-1HzJV0mAcvcad0etkkb_CnWsGPnnQrAD-XSPKsxXUnxevQjbUNZaPYak0euoojTXUk_TbJsMtZrjgmXMgYbpD',
+        expires: 1484314697598
+    }
+  };
+  console.log(envelope);
+  let transporter = nodemailer.createTransport(smtpTransport(envelope));
 
   // setup email data with unicode symbols
   let mailOptions = {
@@ -39,13 +49,15 @@ app.route('/send').post((req, res) => {
   };
 
   // send mail with defined transport object
-  // transporter.sendMail(mailOptions, (error, info) => {
-  //   console.log('---------------------------------------');
-  //   console.log('MAIL: ', req.body.mail);
-  //   console.log('SUBJECT: ', req.body.subject);
-  //   console.log('TEXT: ', req.body.text);
-  //   console.log('Message sent: %s', info.messageId);
-  // });
+  transporter.sendMail(mailOptions, (error, info) => {
+     if(error) {
+        console.log(error)
+     }
+     console.log('---------------------------------------');
+     console.log('MAIL: ', req.body.mail);
+     console.log('SUBJECT: ', req.body.subject);
+     console.log('TEXT: ', mailOptions.text);
+  });
   res.send()
 })
 

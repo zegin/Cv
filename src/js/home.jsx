@@ -59,7 +59,7 @@ class Contact extends React.Component {
     if(this.state.mail && this.validateEmail() && this.state.name && this.state.subject && this.state.text){
       top='-100vh'
       request
-        .post('http://localhost:3000/send/')
+        .post('http://54.37.8.254:3000/send/')
         .set('Content-Type', 'application/json')
         .send({
           mail: this.state.mail,
