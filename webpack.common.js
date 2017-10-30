@@ -5,7 +5,6 @@ const CompressionPlugin = require("compression-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Import our plugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
 // Constant with our paths
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),

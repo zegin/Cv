@@ -15,7 +15,13 @@ app.use(bodyParser.json())
 const nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
-require('dotenv').config()
+console.log(process.env.PORT)
+if(process.env.NODE_ENV === 'dev'){
+  require('dotenv').config({path: './.dev.env'})
+}
+if(process.env.NODE_ENV === 'prod'){
+  require('dotenv').config({path: './.prod.env'})
+}
 
 app.listen(port);
 
@@ -23,17 +29,17 @@ app.route('/send').post((req, res) => {
   // create reusable transporter object using the default SMTP transport
   let envelope = {
     debug: true,
-    host: 'smtp.gmail.com',
+    host: process.env.HOST,
     port: 465,
     secure: true, // SSL=true
     auth: {
         type: 'OAuth2',
-        user: 'zeginfr@gmail.com',
+        user: process.env.USER,
         pass: process.env.PASSWORD,
-        clientId: '951275931047-5d8234poot5om8moe42h17fe6nasm9qj.apps.googleusercontent.com',
-        clientSecret: 'IrNHKmBtptVdnhMZYEwAopuw',
-        refreshToken: '1/43UCLe77qnP_yUT4TccMNuhRWTNwh047KaceuqQVM4w',
-        accessToken: 'ya29.GlvxBEg6x3yfmuq6fn8AqjQJBIbDPDFOi25sT1-1HzJV0mAcvcad0etkkb_CnWsGPnnQrAD-XSPKsxXUnxevQjbUNZaPYak0euoojTXUk_TbJsMtZrjgmXMgYbpD',
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: process.env.ACCESS_TOKEN,
         expires: 1484314697598
     }
   };

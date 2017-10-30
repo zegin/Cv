@@ -9,7 +9,6 @@ import TextField from 'material-ui/TextField'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 import request from 'superagent'
-
 var top = '-100vh'
 
 class Contact extends React.Component {
@@ -59,7 +58,7 @@ class Contact extends React.Component {
     if(this.state.mail && this.validateEmail() && this.state.name && this.state.subject && this.state.text){
       top='-100vh'
       request
-        .post('http://54.37.8.254:3000/send/')
+        .post('http://' + process.env.IP + ':3000/send/') //eslint-disable-line
         .set('Content-Type', 'application/json')
         .send({
           mail: this.state.mail,
@@ -68,10 +67,6 @@ class Contact extends React.Component {
           text: this.state.text
         })
         .set('accept', 'json')
-        .end((err, res) => {
-          if(err){console.log(err)}
-          if(res){console.log(res)}
-        })
       this.forceUpdate()
       this.props.update()
     }
