@@ -1,16 +1,16 @@
 // We are using node's native package 'path'
 // https://nodejs.org/api/path.html
-const path = require('path');
-const CompressionPlugin = require("compression-webpack-plugin")
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // Import our plugin
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin') // Import our plugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 // Constant with our paths
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'src'),
   JS: path.resolve(__dirname, 'src/js'),
-};
+}
 
 // Webpack configuration
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
     }),
-    new ExtractTextPlugin('style.bundle.css'),
+    new MiniCssExtractPlugin('style.bundle.css'),
     new CompressionPlugin({
       test: /\.(js|jsx)$/
     }),
@@ -47,7 +47,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'babel-loader',
-          "eslint-loader",
+          'eslint-loader',
         ],
       },
       // CSS loader to CSS files
@@ -55,9 +55,12 @@ module.exports = {
       // which will write it to the file we defined above
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader'
+        ]
       },
       // File loader for image assets
       // We'll add only image extensions, but you can things like svgs, fonts and videos
@@ -70,27 +73,27 @@ module.exports = {
       {
         test: /\.sass$/,
         use: [
-           'style-loader',
-           'css-loader',
-           'sass-loader'
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ],
       },
-    {
-      test: /\.scss$/,
-      use: [
-        {
-          loader: 'style-loader'
-        },
-        {
-          loader: 'css-loader'
-        },
-        {
-          loader: 'sass-loader', options: {
-            includePaths: ['./node_modules', './node_modules/grommet/node_modules']
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader', options: {
+              includePaths: ['./node_modules', './node_modules/grommet/node_modules']
+            }
           }
-        }
-      ]
-    },
+        ]
+      },
     ],
   },
   // Enable importing JS files without specifying their's extenstion
@@ -103,4 +106,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-};
+}

@@ -1,8 +1,8 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const common = require('./webpack.common.js');
-const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const common = require('./webpack.common.js')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = merge(common, {
   devtool: 'cheap-module-source-map',

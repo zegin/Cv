@@ -19,24 +19,12 @@ class Skill extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      percentages: [0, 0, 0, 0, 0],
-      set: true,
+      percentages: [0, 0, 0, 0, 0]
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.index === 1 && this.state.set){
-      this.setState({
-        percentages: [60, 70, 80, 90, 100],
-        set: false
-      })
-    }
-    else if(nextProps.index !== 1 && !this.state.set){
-      this.setState({
-        percentages: [0, 0, 0, 0, 0],
-        set: true
-      })
-    }
+  static getDerivedStateFromProps(props) {
+    return {percentages: (props.index === 1 ? [60, 70, 80, 90, 100] : [0, 0, 0, 0, 0])}
   }
 
   render() {
