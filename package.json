@@ -1,5 +1,5 @@
 {
-  "name": "Cv",
+  "name": "cv",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -7,6 +7,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "compression-webpack-plugin": "^2.0.0",
+    "concurrently": "^4.1.0",
     "css-loader": "^0.28.7",
     "eslint": "^5.12.0",
     "eslint-loader": "^2.1.1",
@@ -30,7 +31,8 @@
     "api": "set NODE_ENV=dev&& nodemon api/server.js",
     "prod_api": "set NODE_ENV=prod&& nodemon api/server.js",
     "lint": "eslint src/js/*.jsx",
-    "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml"
+    "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml",
+    "start": "concurrently \"yarn api\" \"yarn dev\""
   },
   "dependencies": {
     "babel-eslint": "^10.0.1",

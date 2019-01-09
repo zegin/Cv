@@ -9,7 +9,7 @@ import Experience from './experience'
 import Profile from './profile'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import SwipeableViews from 'react-swipeable-views'
-
+import SuperAgent from 'superagent'
 
 const theme = getMuiTheme(baseTheme, {
   palette: {
@@ -32,6 +32,11 @@ export default class Main extends React.Component {
     this.state = {
       slideIndex: 0,
     }
+    SuperAgent.get('http://localhost:3000', (err, res) => {
+      if(err){
+        throw err
+      }
+    })
   }
 
   handleChange = (value) => {
