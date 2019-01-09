@@ -8,6 +8,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: './dist'
   },
+  mode: 'development',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

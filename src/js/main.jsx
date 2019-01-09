@@ -64,6 +64,39 @@ export default class Main extends React.Component {
       }
     }
     return (
+      // <MuiThemeProvider muiTheme={theme}>
+      //   <div style={styles.back}>
+      //     <Tabs
+      //       onChange={this.handleChange}
+      //       value={this.state.slideIndex}
+      //       className="tabs"
+      //       tabItemContainerStyle={styles.tab}>
+      //       <Tab className="tab" label="Accueil" value={0} />
+      //       <Tab className="tab" label="Compétences" value={1} />
+      //       <Tab className="tab" label="Expériences" value={2} />
+      //       <Tab className="tab" label="Profil" value={3} />
+      //     </Tabs>
+      //     <SwipeableViews
+      //       index={this.state.slideIndex}
+      //       onChangeIndex={this.handleChange}
+      //       animateHeight
+      //       style={{minHeight: 'calc(100vh - 48px)'}}
+      //     >
+      //       <div>
+      //         <Home/>
+      //       </div>
+      //       <div style={styles.slide}>
+      //         <Skill index={this.state.slideIndex}/>
+      //       </div>
+      //       <div style={styles.slide}>
+      //         <Experience/>
+      //       </div>
+      //       <div style={styles.slide}>
+      //         <Profile/>
+      //       </div>
+      //     </SwipeableViews>
+      //   </div>
+      // </MuiThemeProvider>
       <MuiThemeProvider muiTheme={theme}>
         <div style={styles.back}>
           <Tabs
@@ -95,6 +128,7 @@ export default class Main extends React.Component {
               <Profile/>
             </div>
           </SwipeableViews>
+
         </div>
       </MuiThemeProvider>
     )

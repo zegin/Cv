@@ -14,7 +14,7 @@ const paths = {
 
 // Webpack configuration
 module.exports = {
-  entry: ['babel-polyfill', path.join(paths.JS, 'app.jsx')],
+  entry: path.join(paths.JS, 'app.jsx'),
   output: {
     path: paths.DIST,
     filename: 'app.bundle.js'
@@ -46,8 +46,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
-          'babel-loader',
-          'eslint-loader',
+          'babel-loader'
         ],
       },
       // CSS loader to CSS files
