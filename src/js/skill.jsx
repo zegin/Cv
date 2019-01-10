@@ -3,7 +3,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable'
 import CircularProgressbar from 'react-circular-progressbar'
 import Paper from 'material-ui/Paper'
 
-class Tile extends React.Component{
+class Tile extends React.Component{ 
   render() {
     return (
       <div className="skill--content_tile">
