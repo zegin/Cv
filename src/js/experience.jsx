@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import { withTheme } from '@material-ui/core/styles'
 
@@ -85,5 +86,8 @@ const Experience = props => {
   )
 }
 
+Experience.propTypes = {
+  theme: PropTypes.object.isRequired,
+}
 
 export default withTheme()(Experience)
