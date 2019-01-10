@@ -1,4 +1,4 @@
-import React, { Component } from 'react' // eslint-disable-line
+import React from 'react'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 import FontIcon from 'material-ui/FontIcon'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -86,21 +86,21 @@ class Contact extends React.Component {
     }
     return (
       <form ref={this.setWrapperRef}>
-        <Paper className= 'contact--wrapper 'style={{top: top}}>
-          <TextField style={{flex: '1 1 100%'}}
+        <Paper className= 'contact--wrapper 'style={{ top: top }}>
+          <TextField style={{ flex: '1 1 100%' }}
             floatingLabelText="Votre mail"
-            onChange={(evt, val)=>(this.setState({mail: val}))}
+            onChange={(evt, val)=>(this.setState({ mail: val }))}
             onBlur={()=>(this.validateEmail())}
             errorText={this.state.errMail}
           /><br />
-          <TextField style={{flex: '1 1 100%'}}
+          <TextField style={{ flex: '1 1 100%' }}
             floatingLabelText="Votre nom"
-            onChange={(evt, val)=>(this.setState({name: val}))}
+            onChange={(evt, val)=>(this.setState({ name: val }))}
             errorText={this.state.errName}
           /><br />
-          <TextField style={{flex: '1 1 100%'}}
+          <TextField style={{ flex: '1 1 100%' }}
             floatingLabelText="L'object"
-            onChange={(evt, val)=>(this.setState({subject: val}))}
+            onChange={(evt, val)=>(this.setState({ subject: val }))}
             errorText={this.state.errSubject}
           /><br />
           <TextField
@@ -108,14 +108,14 @@ class Contact extends React.Component {
             fullWidth={true}
             multiLine={true}
             rowsMax={5}
-            style={{marginTop: '24px', flex: '1 1 100%' }}
-            onChange={(evt, val)=>(this.setState({text: val}))}
+            style={{ marginTop: '24px', flex: '1 1 100%' }}
+            onChange={(evt, val)=>(this.setState({ text: val }))}
             errorText={this.state.errText}
           />
           <RaisedButton
             label="Envoyer"
             secondary={true}
-            style={{margin: 'auto', marginTop: '2rem'}}
+            style={{ margin: 'auto', marginTop: '2rem' }}
             onClick={()=>(this.validation())}
             icon={<FontIcon className="material-icons">send</FontIcon>}
           />
@@ -205,7 +205,7 @@ class Home extends React.Component {
             onClick={()=>this.showContact()}
             label="Me contacter"
             secondary={true}
-            style={{margin: '5vh'}}
+            style={{ margin: '5vh' }}
             icon={<FontIcon className="material-icons">send</FontIcon>}
           />
         </div>
