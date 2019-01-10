@@ -1,13 +1,13 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import {pink500, white, darkBlack, blueGrey500, blueGrey200 } from 'material-ui/styles/colors'
+import { pink500, white, darkBlack, blueGrey500, blueGrey200 } from 'material-ui/styles/colors'
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import Home from './home'
 import Skill from './skill'
 import Experience from './experience'
 import Profile from './profile'
-import {Tabs, Tab} from 'material-ui/Tabs'
+import { Tabs, Tab } from 'material-ui/Tabs'
 import SwipeableViews from 'react-swipeable-views'
 import SuperAgent from 'superagent'
 
@@ -113,7 +113,7 @@ export default class Main extends React.Component {
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
             animateHeight
-            style={{minHeight: 'calc(100vh - 48px)'}}
+            style={{ minHeight: 'calc(100vh - 48px)' }}
           >
             <div>
               <Home/>

@@ -56,6 +56,7 @@
     ],
     "no-dupe-keys": [
       "off"
-    ]
+    ],
+    "object-curly-spacing": ["error", "always"]
   }
 }
