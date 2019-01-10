@@ -39,7 +39,7 @@ export default class Main extends React.Component {
     this.state = {
       slideIndex: 0,
     }
-    SuperAgent.get('http://localhost:3000', (err, res) => {
+    SuperAgent.get('http://localhost:3000', err => {
       if(err){
         throw err
       }
@@ -70,12 +70,13 @@ export default class Main extends React.Component {
         backgroundColor: 'rgba(0, 0, 0, 0)',
       }
     }
+    const { slideIndex } = this.state
     return (
       <MuiThemeProvider theme={theme}>
         <div style={styles.back}>
           <Tabs
             onChange={this.handleChange}
-            value={this.state.slideIndex}
+            value={slideIndex}
             className="tabs"
             // tabItemContainerStyle={styles.tab}
           >
@@ -85,7 +86,7 @@ export default class Main extends React.Component {
             <Tab className="tab" label="Profil" value={3} />
           </Tabs>
           <SwipeableViews
-            index={this.state.slideIndex}
+            index={slideIndex}
             onChangeIndex={this.handleChange}
             animateHeight
             style={{ minHeight: 'calc(100vh - 48px)' }}
@@ -94,7 +95,7 @@ export default class Main extends React.Component {
               <Home/>
             </div>
             <div style={styles.slide}>
-              <Skill index={this.state.slideIndex}/>
+              <Skill index={slideIndex}/>
             </div>
             <div style={styles.slide}>
               <Experience/>

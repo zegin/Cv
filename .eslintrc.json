@@ -39,9 +39,6 @@
       "error",
       "never"
     ],
-    "no-unused-vars": [
-      "warn"
-    ],
     "no-console": [
       "warn"
     ],
@@ -57,8 +54,29 @@
     "no-dupe-keys": [
       "off"
     ],
-    
-    "object-curly-spacing": ["error", "always"],
-    "prefer-destructuring": ["error", {"object": true, "array": true}]
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": true,
+        "object": true
+      },
+      "AssignmentExpression": {
+        "array": true,
+        "object": true
+      }
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+   "no-useless-constructor": "error",
+   "arrow-body-style": "error",
+   "arrow-parens": ["error", "as-needed"],
+   "arrow-spacing": ["error", { "before": true, "after": true }],
+   "react/destructuring-assignment": ["error", "always"],
+   "react/no-access-state-in-setstate": "error",
+   "react/prefer-es6-class": "error",
+   "react/prefer-stateless-function": "error"
   }
 }
