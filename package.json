@@ -1,5 +1,15 @@
 {
   "name": "cv",
+  "sasslintConfig": "./.sasslintrc.json",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "prod": "webpack --config webpack.prod.js",
+    "api": "set NODE_ENV=dev&& nodemon api/server.js",
+    "prod_api": "set NODE_ENV=prod&& nodemon api/server.js",
+    "lint": "eslint src/js/*.jsx",
+    "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml",
+    "start": "concurrently \"yarn api\" \"yarn dev\""
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -24,17 +34,8 @@
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
   },
-  "sasslintConfig": "./.sasslintrc.json",
-  "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js --colors --port 8888 --hot  --watch",
-    "prod": "webpack --config webpack.prod.js",
-    "api": "set NODE_ENV=dev&& nodemon api/server.js",
-    "prod_api": "set NODE_ENV=prod&& nodemon api/server.js",
-    "lint": "eslint src/js/*.jsx",
-    "lint-sass": "sass-lint --no-exit --verbose -c .sass-lint.yml",
-    "start": "concurrently \"yarn api\" \"yarn dev\""
-  },
   "dependencies": {
+    "@material-ui/core": "^3.8.3",
     "babel-eslint": "^10.0.1",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
@@ -42,7 +43,6 @@
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.5.4",
     "express": "^4.16.2",
-    "material-ui": "^0.19.4",
     "nodemailer": "^4.3.1",
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.12.1",

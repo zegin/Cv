@@ -1,7 +1,7 @@
-import React, { Component } from 'react' // eslint-disable-line
-import muiThemeable from 'material-ui/styles/muiThemeable'
-import Paper from 'material-ui/Paper'
-import Chip from 'material-ui/Chip'
+import React from 'react'
+import Paper from '@material-ui/core/Paper'
+import Chip from '@material-ui/core/Chip'
+import { withTheme } from '@material-ui/core/styles'
 
 class Profile extends React.Component {
 
@@ -10,12 +10,13 @@ class Profile extends React.Component {
   }
 
   render() {
+    const { theme } = this.props
     const styles = {
       titleWrapper: {
-        backgroundColor: this.props.muiTheme.palette.primary1Color,
+        backgroundColor: theme.palette.primary1Color,
       },
       title: {
-        color: this.props.muiTheme.palette.alternateTextColor
+        color: theme.palette.alternateTextColor
       },
     }
     return (
@@ -27,13 +28,13 @@ class Profile extends React.Component {
             </span>
           </div>
           <div className="profile--content_wrapper">
-            <Chip className="profile--chip">Discr&eacute;tion</Chip>
-            <Chip className="profile--chip">Sens de l&apos;observation</Chip>
-            <Chip className="profile--chip">S&eacute;rieux</Chip>
-            <Chip className="profile--chip">Logique</Chip>
-            <Chip className="profile--chip">Force de proposition</Chip>
-            <Chip className="profile--chip">Autonome</Chip>
-            <Chip className="profile--chip">Travail d&apos;&eacute;quipe</Chip>
+            <Chip label='Discr&eacute;tion' className="profile--chip" />
+            <Chip label='Sens de l&apos;observation' className="profile--chip" />
+            <Chip label='S&eacute;rieux' className="profile--chip" />
+            <Chip label='Logique' className="profile--chip" />
+            <Chip label='Force de proposition' className="profile--chip" />
+            <Chip label='Autonome' className="profile--chip" />
+            <Chip label='Travail d&apos;&eacute;quipe' className="profile--chip" />
           </div>
         </Paper>
         <Paper className="profile--paper middle">
@@ -62,13 +63,13 @@ class Profile extends React.Component {
             </span>
           </div>
           <div className="profile--content_wrapper">
-            <Chip className="profile--chip">Nouvelles technologies</Chip>
-            <Chip className="profile--chip">Exp&eacute;rience utilisateur</Chip>
-            <Chip className="profile--chip">Chiffres</Chip>
-            <Chip className="profile--chip">Autonomie</Chip>
-            <Chip className="profile--chip">Musique</Chip>
-            <Chip className="profile--chip">Litt&eacute;rature</Chip>
-            <Chip className="profile--chip">Jeux vid&eacute;o</Chip>
+            <Chip label='Nouvelles technologies' className="profile--chip"/>
+            <Chip label='Exp&eacute;rience utilisateur' className="profile--chip"/>
+            <Chip label='Chiffres' className="profile--chip"/>
+            <Chip label='Autonomie' className="profile--chip"/>
+            <Chip label='Musique' className="profile--chip"/>
+            <Chip label='Litt&eacute;rature' className="profile--chip"/>
+            <Chip label='Jeux vid&eacute;o' className="profile--chip"/>
           </div>
         </Paper>
       </div>
@@ -76,4 +77,4 @@ class Profile extends React.Component {
   }
 }
 
-export default muiThemeable()(Profile)
+export default withTheme()(Profile)

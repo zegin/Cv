@@ -1,7 +1,7 @@
-import React, { Component } from 'react' // eslint-disable-line
-import muiThemeable from 'material-ui/styles/muiThemeable'
+import React from 'react'
 import CircularProgressbar from 'react-circular-progressbar'
-import Paper from 'material-ui/Paper'
+import Paper from '@material-ui/core/Paper'
+import { withTheme } from '@material-ui/core/styles'
 
 class Tile extends React.Component{ 
   render() {
@@ -24,10 +24,11 @@ class Skill extends React.Component {
   }
 
   static getDerivedStateFromProps(props) {
-    return {percentages: (props.index === 1 ? [60, 70, 80, 90, 100] : [0, 0, 0, 0, 0])}
+    return { percentages: (props.index === 1 ? [60, 70, 80, 90, 100] : [0, 0, 0, 0, 0]) }
   }
 
   render() {
+    const { theme } = this.props
     const styles = {
       paper: {
         padding: '0',
@@ -35,7 +36,7 @@ class Skill extends React.Component {
       },
       titleWrapper: {
         boxSizing: 'border-box',
-        backgroundColor: this.props.muiTheme.palette.primary1Color,
+        backgroundColor: theme.palette.primary1Color,
         height: '56px',
         padding: '0px 24px',
         marginBottom: '1rem'
@@ -49,12 +50,12 @@ class Skill extends React.Component {
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
-        color: this.props.muiTheme.palette.alternateTextColor
+        color: theme.palette.alternateTextColor
       },
     }
     return (
       <div className="skill--wrapper">
-        <Paper style={styles.paper} zDepth={2}>
+        <Paper style={styles.paper}>
           <div style={styles.titleWrapper}>
             <span style={styles.title}>
               Front end
@@ -79,7 +80,7 @@ class Skill extends React.Component {
           </div>
         </Paper>
 
-        <Paper style={styles.paper} zDepth={2}>
+        <Paper style={styles.paper}>
           <div style={styles.titleWrapper}>
             <span style={styles.title}>
               Back end
@@ -107,7 +108,7 @@ class Skill extends React.Component {
           </div>
         </Paper>
 
-        <Paper style={styles.paper} zDepth={2}>
+        <Paper style={styles.paper}>
           <div style={styles.titleWrapper}>
             <span style={styles.title}>
               Autres
@@ -139,4 +140,4 @@ class Skill extends React.Component {
   }
 }
 
-export default muiThemeable()(Skill)
+export default withTheme()(Skill)

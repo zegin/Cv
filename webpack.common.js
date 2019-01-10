@@ -4,6 +4,7 @@ const path = require('path')
 const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // Import our plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 // Constant with our paths
 const paths = {
@@ -23,8 +24,9 @@ module.exports = {
   devServer: {
     hot: true,
     inline: true,
-    port: 3000,
+    port: 8888,
     historyApiFallback: true,
+    open: true,
   },
 
   // Tell webpack to use html plugin
@@ -37,6 +39,7 @@ module.exports = {
     new CompressionPlugin({
       test: /\.(js|jsx)$/
     }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   // Loaders configuration
   // We are telling webpack to use "babel-loader" for .js and .jsx files

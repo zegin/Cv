@@ -1,9 +1,10 @@
-import React, { Component } from 'react' // eslint-disable-line
-import muiThemeable from 'material-ui/styles/muiThemeable'
-import Paper from 'material-ui/Paper'
+import React from 'react'
+import Paper from '@material-ui/core/Paper'
+import { withTheme } from '@material-ui/core/styles'
 
 class Experience extends React.Component {
   render() {
+    const { theme } = this.props
     const styles = {
       left: {
         float: 'left',
@@ -12,14 +13,14 @@ class Experience extends React.Component {
         float: 'right',
       },
       titleWrapper: {
-        backgroundColor: this.props.muiTheme.palette.primary1Color,
-        color: this.props.muiTheme.palette.alternateTextColor
+        backgroundColor: theme.palette.primary1Color,
+        color: theme.palette.alternateTextColor
       }
     }
     
     return (
       <div style={styles.grid} className="xp--grid">
-        <Paper className="xp--top" style={styles.paper} zDepth={2}>
+        <Paper className="xp--top" style={styles.paper}>
           <div className="xp--titleWrapper" style={styles.titleWrapper}>
             <span style={styles.left}>UDAF 49 -- Développeur Web</span>
             <span style={styles.right}>20/01/17 - Aujourd&apos;hui</span>
@@ -45,7 +46,7 @@ class Experience extends React.Component {
             </ul>
           </div>
         </Paper>
-        <Paper className="xp--botLeft" style={styles.paper} zDepth={2}>
+        <Paper className="xp--botLeft" style={styles.paper}>
           <div className="xp--titleWrapper" style={styles.titleWrapper}>
             <span style={styles.left}>AEON Creation -- Stagiaire</span>
             <span style={styles.right}>2016 - 2 mois</span>
@@ -64,7 +65,7 @@ class Experience extends React.Component {
             </ul>
           </div>
         </Paper>
-        <Paper className="xp--botRight" style={styles.paper} zDepth={2}>
+        <Paper className="xp--botRight" style={styles.paper}>
           <div className="xp--titleWrapper" style={styles.titleWrapper}>
             <span style={styles.left}>E.N.S.A.M -- Stagiaire</span>
             <span style={styles.right}>2015 - 1 Mois</span>
@@ -87,4 +88,4 @@ class Experience extends React.Component {
   }
 }
 
-export default muiThemeable()(Experience)
+export default withTheme()(Experience)

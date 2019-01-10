@@ -1,28 +1,35 @@
 import React from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { pink500, white, darkBlack, blueGrey500, blueGrey200 } from 'material-ui/styles/colors'
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import pink from '@material-ui/core/colors/pink'
+import blueGrey from '@material-ui/core/colors/blueGrey'
+import grey from '@material-ui/core/colors/blueGrey'
+
 import Home from './home'
 import Skill from './skill'
 import Experience from './experience'
 import Profile from './profile'
-import { Tabs, Tab } from 'material-ui/Tabs'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
 import SwipeableViews from 'react-swipeable-views'
 import SuperAgent from 'superagent'
 
-const theme = getMuiTheme(baseTheme, {
+const theme = createMuiTheme({
   palette: {
-    primary1Color: pink500,
-    accent1Color: pink500,
-    textColor: darkBlack,
-    alternateTextColor: white,
-    backgroundColor: blueGrey500,
+    primary: pink,
+    primary1Color: pink[500],
+    accent1Color: pink[500],
+    textColor: grey[900],
+    alternateTextColor: '#fff',
+    backgroundColor: blueGrey[500],
   },
   tabs: {
-    selectedTextColor: blueGrey200,
-    textColor: white
-  }
+    selectedTextColor: blueGrey[200],
+    textColor: '#fff'
+  },
+  typography: {
+    useNextVariants: true,
+  },
 })
 
 export default class Main extends React.Component {
@@ -39,7 +46,7 @@ export default class Main extends React.Component {
     })
   }
 
-  handleChange = (value) => {
+  handleChange = (event, value) => {
     this.setState({
       slideIndex: value,
     })
@@ -64,46 +71,14 @@ export default class Main extends React.Component {
       }
     }
     return (
-      // <MuiThemeProvider muiTheme={theme}>
-      //   <div style={styles.back}>
-      //     <Tabs
-      //       onChange={this.handleChange}
-      //       value={this.state.slideIndex}
-      //       className="tabs"
-      //       tabItemContainerStyle={styles.tab}>
-      //       <Tab className="tab" label="Accueil" value={0} />
-      //       <Tab className="tab" label="Compétences" value={1} />
-      //       <Tab className="tab" label="Expériences" value={2} />
-      //       <Tab className="tab" label="Profil" value={3} />
-      //     </Tabs>
-      //     <SwipeableViews
-      //       index={this.state.slideIndex}
-      //       onChangeIndex={this.handleChange}
-      //       animateHeight
-      //       style={{minHeight: 'calc(100vh - 48px)'}}
-      //     >
-      //       <div>
-      //         <Home/>
-      //       </div>
-      //       <div style={styles.slide}>
-      //         <Skill index={this.state.slideIndex}/>
-      //       </div>
-      //       <div style={styles.slide}>
-      //         <Experience/>
-      //       </div>
-      //       <div style={styles.slide}>
-      //         <Profile/>
-      //       </div>
-      //     </SwipeableViews>
-      //   </div>
-      // </MuiThemeProvider>
-      <MuiThemeProvider muiTheme={theme}>
+      <MuiThemeProvider theme={theme}>
         <div style={styles.back}>
           <Tabs
             onChange={this.handleChange}
             value={this.state.slideIndex}
             className="tabs"
-            tabItemContainerStyle={styles.tab}>
+            // tabItemContainerStyle={styles.tab}
+          >
             <Tab className="tab" label="Accueil" value={0} />
             <Tab className="tab" label="Compétences" value={1} />
             <Tab className="tab" label="Expériences" value={2} />
