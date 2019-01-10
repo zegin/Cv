@@ -12,7 +12,7 @@ import request from 'superagent'
 var top = '-100vh'
 
 class Contact extends React.Component {
-
+ 
   constructor(props) {
     super(props)
     this.state = {
