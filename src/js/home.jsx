@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from '@material-ui/core/Icon'
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
 // Contact Import
@@ -7,6 +6,7 @@ import styled from 'styled-components'
 // import TextField from 'material-ui/TextField'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+import Icon from './atoms/Icon'
 // import { withTheme } from '@material-ui/core/styles'
 // import request from 'superagent'
 
@@ -134,40 +134,12 @@ const SubTitle = styled.p`
 ` 
 
 const EmailContainer = styled.div`
-  display: flex;
-  margin-top: 5vh;
-`
-
-const Email = styled.div`
-  margin: auto;
-  display: flex;
-  font-size: 1.1rem;
-`
-
-const EmailIcon = styled(Icon)`
-  margin: auto;
-  margin-right: .5em;
-  padding-top: 2px;
-  color: ${({ theme }) => theme.palette.alternateTextColor};
-  font-size: 1.1rem;
-`
-
-const PhoneWrapper = styled.div`
-  display: flex;
   margin-top: 1vh;
-`
-
-const Phone = styled.div`
-  margin: auto;
-  display: flex;
   font-size: 1.1rem;
 `
 
-const PhoneIcon = styled(Icon)`
-  margin: auto;
-  margin-right: .5em;
-  padding-top: 2px;
-  color: ${({ theme }) => theme.palette.alternateTextColor};
+const PhoneContainer = styled.div`
+  margin-top: 1vh;
   font-size: 1.1rem;
 `
 
@@ -175,10 +147,6 @@ const ContactButton = styled(Button)`
   color: ${({ theme }) => theme.palette.alternateTextColor} !important;
   background-color: ${({ theme }) => theme.palette.primary[500]} !important;
   margin-top: 1vh !important;
-`
-
-const ContactButtonIcon = styled(Icon)`
-  margin-right: .5em;
 `
 
 class Home extends React.Component {
@@ -206,28 +174,22 @@ class Home extends React.Component {
         <p className="home--title">Gilian Gonnord</p>
         <SubTitle>Développeur FullStack</SubTitle>
         <EmailContainer>
-          <Email>
-            <EmailIcon className="material-icons">email</EmailIcon>
+          <Icon className="material-icons">email</Icon>
             Gilian.gonnord4b@laposte.net
-          </Email>
         </EmailContainer>
-        <PhoneWrapper>
-          <Phone>
-            <PhoneIcon className="material-icons">phone</PhoneIcon>
+        <PhoneContainer>
+          <Icon className="material-icons">phone</Icon>
             06 74 94 61 23
-          </Phone>
-        </PhoneWrapper>
-        <div>
-          <ContactButton
-            onClick={() => this.showContact()}
-            label="Me contacter"
-            color='primary'
-            variant="contained"
-          >
-            <ContactButtonIcon className="material-icons">send</ContactButtonIcon> Me contacter
-          </ContactButton>
-        </div>
-        <ToastContainer
+        </PhoneContainer>
+        <ContactButton
+          onClick={() => this.showContact()}
+          label="Me contacter"
+          color='primary'
+          variant="contained"
+        >
+          <Icon className="material-icons">send</Icon> Me contacter
+        </ContactButton>
+        {/* <ToastContainer
           position="bottom-center"
           type="success"
           autoClose={5000}
@@ -236,7 +198,7 @@ class Home extends React.Component {
           closeOnClick
           pauseOnHover
         />
-        {/* <Contact update={()=>this.update()}/> */}
+        <Contact update={()=>this.update()}/> */}
       </Root>
     )
   }
