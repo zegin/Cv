@@ -1,13 +1,13 @@
 import React from 'react'
 import Icon from '@material-ui/core/Icon'
 import Button from '@material-ui/core/Button'
-
+import styled from 'styled-components'
 // Contact Import
 // import Paper from 'material-ui/Paper'
 // import TextField from 'material-ui/TextField'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { withTheme } from '@material-ui/core/styles'
+// import { withTheme } from '@material-ui/core/styles'
 // import request from 'superagent'
 
 // class Contact extends React.Component {
@@ -124,101 +124,108 @@ import { withTheme } from '@material-ui/core/styles'
 //   }
 // }
 
+const Root = styled.div`
+  color: ${({ theme }) => theme.palette.alternateTextColor};
+  text-align: center;
+`
+
+const SubTitle = styled.p`
+  font-size: 2em;
+` 
+
+const EmailContainer = styled.div`
+  display: flex;
+  margin-top: 5vh;
+`
+
+const Email = styled.div`
+  margin: auto;
+  display: flex;
+  font-size: 1.1rem;
+`
+
+const EmailIcon = styled(Icon)`
+  margin: auto;
+  margin-right: .5em;
+  padding-top: 2px;
+  color: ${({ theme }) => theme.palette.alternateTextColor};
+  font-size: 1.1rem;
+`
+
+const PhoneWrapper = styled.div`
+  display: flex;
+  margin-top: 1vh;
+`
+
+const Phone = styled.div`
+  margin: auto;
+  display: flex;
+  font-size: 1.1rem;
+`
+
+const PhoneIcon = styled(Icon)`
+  margin: auto;
+  margin-right: .5em;
+  padding-top: 2px;
+  color: ${({ theme }) => theme.palette.alternateTextColor};
+  font-size: 1.1rem;
+`
+
+const ContactButton = styled(Button)`
+  color: ${({ theme }) => theme.palette.alternateTextColor} !important;
+  background-color: ${({ theme }) => theme.palette.primary[500]} !important;
+  margin-top: 1vh !important;
+`
+
+const ContactButtonIcon = styled(Icon)`
+  margin-right: .5em;
+`
+
 class Home extends React.Component {
   state = {
     top: '-100vh'
   }
+  
   showContact() {
     this.setState({
       top: '20vh'
     })
-    this.forceUpdate()
+    // this.forceUpdate()
   }
 
   update() {
     toast.success('Merci pour votre attention !', {
       className: 'primary-toast'
     })
-    this.forceUpdate()
+    // this.forceUpdate()
   }
 
   render() {
-    const { theme } = this.props
-    const styles = {
-      skillbody: {
-        alignItems: 'left',
-      },
-      home: {
-        color: theme.palette.alternateTextColor,
-        textAlign: 'center',
-        // height: 'calc(100vh - ' + theme.button.iconButtonSize + 'px)'
-      },
-      home_button: { 
-        color: theme.palette.alternateTextColor,
-        margin: '5vh' 
-      },
-      home_subTitle: {
-        fontSize: '2em'
-      },
-      home_email: {
-        display: 'flex',
-        marginTop: '5vh'
-      },
-      home_emailWrapper: {
-        margin: 'auto',
-        display: 'flex',
-        fontSize: '1.1rem'
-      },
-      home_emailIcon: {
-        margin: 'auto',
-        marginRight: '.5em',
-        paddingTop: '2px',
-        color: theme.palette.alternateTextColor,
-        fontSize: '1.1rem'
-      },
-      home_phone: {
-        display: 'flex',
-        marginTop: '1vh'
-      },
-      home_phoneWrapper: {
-        margin: 'auto',
-        display: 'flex',
-        fontSize: '1.1rem'
-      },
-      home_phoneIcon: {
-        margin: 'auto',
-        marginRight: '.5em',
-        paddingTop: '2px',
-        color: theme.alternateTextColor,
-        fontSize: '1.1rem'
-      }
-    }
     return (
-      <div style={styles.home}>
-        <p style={styles.home_title} className="home--title">Gilian Gonnord</p>
-        <p style={styles.home_subTitle}>Développeur FullStack</p>
-        <div style={styles.home_email}>
-          <div style={styles.home_emailWrapper}>
-            <Icon style={styles.home_emailIcon} className="material-icons">email</Icon>
+      <Root>
+        <p className="home--title">Gilian Gonnord</p>
+        <SubTitle>Développeur FullStack</SubTitle>
+        <EmailContainer>
+          <Email>
+            <EmailIcon className="material-icons">email</EmailIcon>
             Gilian.gonnord4b@laposte.net
-          </div>
-        </div>
-        <div style={styles.home_phone}>
-          <div style={styles.home_phoneWrapper}>
-            <Icon style={styles.home_phoneIcon} className="material-icons">phone</Icon>
+          </Email>
+        </EmailContainer>
+        <PhoneWrapper>
+          <Phone>
+            <PhoneIcon className="material-icons">phone</PhoneIcon>
             06 74 94 61 23
-          </div>
-        </div>
+          </Phone>
+        </PhoneWrapper>
         <div>
-          <Button
-            onClick={()=>this.showContact()}
+          <ContactButton
+            onClick={() => this.showContact()}
             label="Me contacter"
             color='primary'
-            style={styles.home_button}
             variant="contained"
           >
-            <Icon className="material-icons">send</Icon> Me contacter
-          </Button>
+            <ContactButtonIcon className="material-icons">send</ContactButtonIcon> Me contacter
+          </ContactButton>
         </div>
         <ToastContainer
           position="bottom-center"
@@ -230,9 +237,9 @@ class Home extends React.Component {
           pauseOnHover
         />
         {/* <Contact update={()=>this.update()}/> */}
-      </div>
+      </Root>
     )
   }
 }
 
-export default withTheme()(Home)
+export default Home

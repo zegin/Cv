@@ -19,11 +19,19 @@
   "plugins": [
     "react"
   ],
-  "settings": {
-    "pragma": "React",
-    "version": "detect"
-  },
   "rules": {
+    "arrow-body-style": "error",
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "after": true,
+        "before": true
+      }
+    ],
     "indent": [
       "error",
       2
@@ -31,52 +39,60 @@
     "linebreak-style": [
       "off"
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
     "no-console": [
-      "warn"
-    ],
-    "no-undef": [
-      "warn"
-    ],
-    "react/no-deprecated": [
       "warn"
     ],
     "no-dupe-keys": [
       "off"
     ],
+    "no-undef": [
+      "warn"
+    ],
+    "no-useless-constructor": "error",
     "object-curly-spacing": [
       "error",
       "always"
     ],
-    "prefer-destructuring": ["error", {
-      "VariableDeclarator": {
-        "array": true,
-        "object": true
+    "prefer-destructuring": [
+      "error",
+      {
+        "AssignmentExpression": {
+          "array": true,
+          "object": true
+        },
+        "VariableDeclarator": {
+          "array": true,
+          "object": true
+        }
       },
-      "AssignmentExpression": {
-        "array": true,
-        "object": true
+      {
+        "enforceForRenamedProperties": false
       }
-    }, {
-      "enforceForRenamedProperties": false
-    }],
-   "no-useless-constructor": "error",
-   "arrow-body-style": "error",
-   "arrow-parens": ["error", "as-needed"],
-   "arrow-spacing": ["error", { "before": true, "after": true }],
-   "react/destructuring-assignment": ["error", "always"],
-   "react/no-access-state-in-setstate": "error",
-   "react/prefer-es6-class": "error",
-   "react/prefer-stateless-function": "error",
-   "react/prop-types": "error",
-   "react/sort-prop-types": "error",
-   "react/style-prop-object": "error"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "react/destructuring-assignment": [
+      "error",
+      "always"
+    ],
+    "react/no-access-state-in-setstate": "error",
+    "react/no-deprecated": [
+      "warn"
+    ],
+    "react/prefer-es6-class": "error",
+    "react/prefer-stateless-function": "error",
+    "react/prop-types": "error",
+    "react/sort-prop-types": "error",
+    "react/style-prop-object": "error",
+    "semi": [
+      "error",
+      "never"
+    ]
+  },
+  "settings": {
+    "pragma": "React",
+    "version": "detect"
   }
 }

@@ -3,15 +3,25 @@ import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import { withTheme } from '@material-ui/core/styles'
 
+
+import styled from 'styled-components'
+
+const Left = styled.span`
+  float: left;
+`
+
+const Right = styled.span`
+  float: right;
+`
+
+const TitleWrapper = styled.div`
+  background-color: ${props => props.theme.palette.primary1Color};
+  color: ${props => props.theme.palette.alternateTextColor};
+`
+
 const Experience = props => {
   const { theme } = props
   const styles = {
-    left: {
-      float: 'left',
-    },
-    right: {
-      float: 'right',
-    },
     titleWrapper: {
       backgroundColor: theme.palette.primary1Color,
       color: theme.palette.alternateTextColor
@@ -20,10 +30,10 @@ const Experience = props => {
   return (
     <div style={styles.grid} className="xp--grid">
       <Paper className="xp--top" style={styles.paper}>
-        <div className="xp--titleWrapper" style={styles.titleWrapper}>
-          <span style={styles.left}>UDAF 49 -- Développeur Web</span>
-          <span style={styles.right}>20/01/17 - Aujourd&apos;hui</span>
-        </div>
+        <TitleWrapper className="xp--titleWrapper">
+          <Left >UDAF 49 -- Développeur Web</Left>
+          <Right >20/01/17 - Aujourd&apos;hui</Right>
+        </TitleWrapper>
         <div className="xp--content xp--contentTop">
           <div className="xp--contentHeader">
             D&eacute;veloppement de l&apos;intranet, de divers outils et suppl&eacute;ance du responsable informatique
@@ -46,10 +56,10 @@ const Experience = props => {
         </div>
       </Paper>
       <Paper className="xp--botLeft" style={styles.paper}>
-        <div className="xp--titleWrapper" style={styles.titleWrapper}>
+        <TitleWrapper className="xp--titleWrapper">
           <span style={styles.left}>AEON Creation -- Stagiaire</span>
           <span style={styles.right}>2016 - 2 mois</span>
-        </div>
+        </TitleWrapper>
         <div className="xp--content xp--contentTop">
           <div className="xp--contentHeader">
             Cr&eacute;ation d&apos;une API d&apos;optimisation d&apos;image
@@ -65,10 +75,10 @@ const Experience = props => {
         </div>
       </Paper>
       <Paper className="xp--botRight" style={styles.paper}>
-        <div className="xp--titleWrapper" style={styles.titleWrapper}>
+        <TitleWrapper className="xp--titleWrapper">
           <span style={styles.left}>E.N.S.A.M -- Stagiaire</span>
           <span style={styles.right}>2015 - 1 Mois</span>
-        </div>
+        </TitleWrapper>
         <div className="xp--content xp--contentTop">
           <div className="xp--contentHeader">
             Analyse et maintenance du parc informatique

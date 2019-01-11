@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import styled from 'styled-components'
+
 import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
 import { withTheme } from '@material-ui/core/styles'
